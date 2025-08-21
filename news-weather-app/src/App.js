@@ -9,17 +9,19 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        {/* Navbar remains the same */}
         <Navbar />
+
+        {/* Main container for routes */}
         <div className="container">
           <Routes>
             <Route path="/" element={<News category="general" />} />
             <Route path="/global" element={<News category="general" />} />
-            <Route
-              path="/technology"
-              element={<News category="technology" />}
-            />
+            <Route path="/technology" element={<News category="technology" />} />
             <Route path="/finance" element={<News category="business" />} />
             <Route path="/science" element={<News category="science" />} />
+
+            {/* Weather route with updated component */}
             <Route path="/weather" element={<Weather />} />
           </Routes>
         </div>
