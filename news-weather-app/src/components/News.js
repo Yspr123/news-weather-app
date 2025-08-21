@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./News.css";
 
-const REACT_APP_NEWS_API_KEY = "14f2b7c459f946a6ae0b91bb80faf434";
+const REACT_APP_NEWS_API_KEY = "pub_54b01337678e4331a3605ef64c648e2b";
 
 const News = ({ category }) => {
   const [articles, setArticles] = useState([]);
@@ -11,11 +11,15 @@ const News = ({ category }) => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
+        // Construct the URL based on search and category
         const url = search
-          ? `https://newsapi.org/v2/top-headlines?q=${search}&language=en&category=${category}&apiKey=${REACT_APP_NEWS_API_KEY}`
-          : `https://newsapi.org/v2/top-headlines?language=en&category=${category}&apiKey=${REACT_APP_NEWS_API_KEY}`;
+          ? `https://newsdata.io/api/1/news?apikey=${REACT_APP_NEWS_API_KEY}&q=${search}&language=en`
+          : `https://newsdata.io/api/1/news?apikey=${REACT_APP_NEWS_API_KEY}&category=${category}&language=en`;
+
         const response = await axios.get(url);
-        setArticles(response.data.articles);
+
+        // NewsData.io returns articles in response.data.results
+        setArticles(response.data.results || []);
       } catch (error) {
         console.error("Error fetching news:", error);
       }
@@ -61,21 +65,29 @@ const News = ({ category }) => {
             tabIndex={0}
             style={{ animation: `fadeIn 0.5s ease ${index * 0.07}s both` }}
           >
-            <img
+            <div className="news-image-wrapper">
+               <img
               src={
-                article.urlToImage ||
+                article.image_url ||
                 "https://via.placeholder.com/340x160?text=No+Image"
               }
               alt={article.title}
               className="news-image"
             />
+            </div>
             <div className="news-content">
               <div className="news-title">{article.title}</div>
               <div className="news-description">
                 {shortDescription(article.description)}
               </div>
+              <div
+                className="news-category"
+                style={{ fontStyle: "italic", color: "#888" }}
+              >
+                {article.category ? article.category.join(", ") : "General"}
+              </div>
               <a
-                href={article.url}
+                href={article.link}
                 className="news-link"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -91,3 +103,4 @@ const News = ({ category }) => {
 };
 
 export default News;
+

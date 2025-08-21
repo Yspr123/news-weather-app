@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
 
-const REACT_APP_WEATHER_API_KEY = "25a4969335520809c8c3bd95cc73f062";
+ const REACT_APP_WEATHER_API_KEY = "25a4969335520809c8c3bd95cc73f062";
 
 const Navbar = () => {
   const [coords, setCoords] = useState(null);

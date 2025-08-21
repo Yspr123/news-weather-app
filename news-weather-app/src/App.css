@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   background: #181a20;
   min-height: 100vh;
 }
@@ -86,7 +86,7 @@ li {
   background: #23263a;
   color: #eaeaea;
   border-radius: 18px;
-  box-shadow: 0 2px 24px rgba(0,0,0,0.45);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -98,14 +98,24 @@ li {
 
 .news-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 0 6px #61dafb44, 0 4px 32px rgba(0,0,0,0.55);
+  box-shadow: 0 0 0 6px #61dafb44, 0 4px 32px rgba(0, 0, 0, 0.55);
+}
+
+.news-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .news-image {
   width: 100%;
-  height: 160px;
+  height: 100%;
   object-fit: cover;
-  background: #222;
+  display: block;
 }
 
 .news-content {
