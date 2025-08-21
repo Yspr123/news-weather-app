@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+const REACT_APP_NEWS_API_KEY = "14f2b7c459f946a6ae0b91bb80faf434";
+
 const News = ({ category }) => {
   const [articles, setArticles] = useState([]);
   const [search, setSearch] = useState("");
@@ -9,8 +11,8 @@ const News = ({ category }) => {
     const fetchNews = async () => {
       try {
         const url = search
-          ? `https://newsapi.org/v2/top-headlines?q=${search}&language=en&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
-          : `https://newsapi.org/v2/top-headlines?language=en&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+          ? `https://newsapi.org/v2/top-headlines?q=${search}&language=en&category=${category}&apiKey=${REACT_APP_NEWS_API_KEY}`
+          : `https://newsapi.org/v2/top-headlines?language=en&category=${category}&apiKey=${REACT_APP_NEWS_API_KEY}`;
         const response = await axios.get(url);
         setArticles(response.data.articles);
       } catch (error) {
