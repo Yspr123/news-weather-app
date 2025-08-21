@@ -70,7 +70,7 @@ const News = ({ category }) => {
   src={
     article.image_url
       ? article.image_url
-      : https://picsum.photos/340/340?random=${index}
+      : `https://picsum.photos/340/340?random=${index}`
   }
   alt={article.title}
   className="news-image"
