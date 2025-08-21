@@ -67,13 +67,14 @@ const News = ({ category }) => {
           >
             <div className="news-image-wrapper">
                <img
-              src={
-                article.image_url ||
-                "https://via.placeholder.com/340x160?text=No+Image"
-              }
-              alt={article.title}
-              className="news-image"
-            />
+  src={
+    article.image_url
+      ? article.image_url
+      : https://picsum.photos/340/340?random=${index}
+  }
+  alt={article.title}
+  className="news-image"
+/>
             </div>
             <div className="news-content">
               <div className="news-title">{article.title}</div>
