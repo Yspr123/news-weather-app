@@ -1,0 +1,59 @@
+.weather-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: #1c2433;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.current-weather h2 {
+  margin-bottom: 10px;
+}
+
+.current-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.current-main .icon {
+  font-size: 3rem;
+}
+
+.current-main h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.details {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.forecast h3 {
+  margin-bottom: 10px;
+}
+
+.hourly-forecast {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.hour {
+  flex: 0 0 auto;
+  background: #2a3345;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
